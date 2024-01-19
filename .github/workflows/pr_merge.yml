@@ -31,4 +31,4 @@ jobs:
         with:
           use_api: true
           increment: minor
-          release_branch: master
+          #release_branch: master
