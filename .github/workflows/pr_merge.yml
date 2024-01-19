@@ -13,6 +13,8 @@ jobs:
     #if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       # - name: Filter tag
         # uses: bhowell2/github-substring-action@1.0.2
         # id: one
