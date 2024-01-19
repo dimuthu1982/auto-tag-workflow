@@ -27,5 +27,5 @@ jobs:
         id: version
         with:
           use_api: true
-          increment: patch
+          increment: minor
           release_branch: main
