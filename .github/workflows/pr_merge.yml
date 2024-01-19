@@ -21,8 +21,8 @@ jobs:
         #   index_of_str: "release/"
         #   output_name: "releaseVersion"
       #- run: echo "Tag by version - ${{steps.one.outputs.releaseVersion}}"
-      - run: git config --global user.name ${{ github.triggering_actor }}
-      - run: git config --global user.email dimuthu1982@yahoo.com
+      #- run: git config --global user.name ${{ github.triggering_actor }}
+      #- run: git config --global user.email dimuthu1982@yahoo.com
       - name: Find New Tag
         uses: reecetech/version-increment@2023.10.1
         id: version
