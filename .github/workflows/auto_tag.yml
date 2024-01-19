@@ -1,5 +1,5 @@
 name: GitHub Auto Tag - Test
-run-name: ${{ github.actor }} Auto tag v1
+run-name: ${{ github.actor }} Auto tag v2
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -12,5 +12,5 @@ jobs:
         uses: reecetech/version-increment@2023.9.3
         id: version
         with:
-          scheme: semver
+          use_api: true
           increment: patch
