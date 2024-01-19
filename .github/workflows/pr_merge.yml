@@ -36,6 +36,6 @@ jobs:
         with:
          # github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: "${{steps.version.outputs.version}}"
-          tag_exists_error: true
+          tag_exists_error: false
           message: "Create Tag - ${{steps.version.outputs.version}}"
             
