@@ -14,3 +14,4 @@ jobs:
         with:
           use_api: true
           increment: patch
+          release_branch: main
