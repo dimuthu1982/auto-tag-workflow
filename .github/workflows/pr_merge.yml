@@ -32,3 +32,9 @@ jobs:
           use_api: true
           increment: minor
           #release_branch: master
+      - run: echo "New version to be taged - ${{steps.version.outputs.version}}"
+      - name: Create tag
+        run: |
+          git tag -a "${{steps.version.outputs.version}}" -m "Version ${{steps.version.outputs.version}}"
+          git push --tags
+            
