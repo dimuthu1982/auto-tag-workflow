@@ -1,5 +1,5 @@
 name: GitHub Auto Tag - Test
-run-name: ${{ github.actor }} Auto tag
+run-name: ${{ github.actor }} Auto tag v1
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -8,7 +8,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Get next version
+      - name: Get next versionc
         uses: reecetech/version-increment@2023.9.3
         id: version
         with:
