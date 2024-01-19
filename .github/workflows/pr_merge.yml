@@ -23,7 +23,7 @@ jobs:
       #- run: echo "Tag by version - ${{steps.one.outputs.releaseVersion}}"
       - uses: actions/checkout@v4
       - name: Add Tag
-        uses: reecetech/version-increment@2023.10.3
+        uses: reecetech/version-increment@2023.10.1
         id: version
         with:
           use_api: true
