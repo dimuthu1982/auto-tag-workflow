@@ -1,0 +1,31 @@
+name: Merge branch to master
+run-name: Merge ${{ github.head_ref }} to master 🏷️
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+
+jobs:
+  create_tag:
+    name: Create Tag
+    if:  github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Filter tag
+        uses: bhowell2/github-substring-action@1.0.2
+        id: one
+        with:
+          value: "${{ github.head_ref }}"
+          index_of_str: "release/"
+          output_name: "releaseVersion"
+      #- run: echo "Tag by version - ${{steps.one.outputs.releaseVersion}}"
+      - uses: actions/checkout@v4
+      - name: Add Tag
+        uses: reecetech/version-increment@2023.10.3
+        id: version
+        with:
+          use_api: true
+          increment: patch
+          release_branch: main

@@ -8,8 +8,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Get next versionc
-        uses: reecetech/version-increment@2023.10.1
+      - name: Get next version
+        uses: reecetech/version-increment@2023.10.3
         id: version
         with:
           use_api: true
