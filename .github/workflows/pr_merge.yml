@@ -23,7 +23,6 @@ jobs:
       #- run: echo "Tag by version - ${{steps.one.outputs.releaseVersion}}"
       - run: git config --global user.name ${{ github.triggering_actor }}
       - run: git config --global user.email dimuthu1982@yahoo.com
-      - uses: actions/checkout@v4
       - name: Add Tag
         uses: reecetech/version-increment@2023.10.1
         id: version
