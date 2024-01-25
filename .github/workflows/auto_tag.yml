@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} Auto tag v2
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-     if: false
+     if: true
      runs-on: ubuntu-latest
      outputs:
        NAME: "Explore-GitHub-Actions"
@@ -19,8 +19,8 @@ jobs:
           increment: patch
           release_branch: main
   Job2:
-    #if: ${{ !success() }}
-    if: false
+    if: ${{ !success() }}
+    #if: false
     outputs:
        NAME: "Job2"
     needs: Explore-GitHub-Actions
