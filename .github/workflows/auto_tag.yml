@@ -35,4 +35,4 @@ jobs:
      - env:
           JOB1: ${{needs.Explore-GitHub-Actions.outputs.NAME}}
           JOB2: ${{needs.Job2.outputs.NAME}}
-     - run: echo Helloooo from Job2 ($JOB1) ($JOB2).....
+     - run: echo "Helloooo from Job2 ($JOB1) ($JOB2)....."
