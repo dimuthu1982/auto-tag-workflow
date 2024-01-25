@@ -24,7 +24,7 @@ jobs:
       - run: echo Helloooo from Job2 .....
 
   FinalJob: 
-   if: ${{ success() }}
+   if: ${{ always() }}
    needs: [Explore-GitHub-Actions,Job2]
    runs-on: ubuntu-latest
    steps:
