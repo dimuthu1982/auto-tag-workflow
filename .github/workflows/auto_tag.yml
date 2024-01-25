@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
      if: true
      runs-on: ubuntu-latest
+     outputs:
+       NAME: "Explore-GitHub-Actions"
      steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,14 +20,19 @@ jobs:
           release_branch: main
   Job2:
     if: ${{ !success() }}
+    outputs:
+       NAME: "Job2"
     needs: Explore-GitHub-Actions
     runs-on: ubuntu-latest
     steps:
       - run: echo Helloooo from Job2 .....
 
   FinalJob: 
-   if: ${{ always() }}
+   if: ${{ always() && (needs.Explore-GitHub-Actions.outputs.NAME || needs.Job2.outputs.NAME) }}
    needs: [Explore-GitHub-Actions,Job2]
-   runs-on: ubuntu-latest
+   runs-on: ubuntu-latest   
    steps:
-      - run: echo Helloooo from Job2 .....
+     - env:
+          JOB1: ${{needs.Explore-GitHub-Actions.outputs.NAME}}
+          JOB2: ${{needs.Job2.outputs.NAME}}
+     - run: echo Helloooo from Job2 ($JOB1) ($JOB2).....
