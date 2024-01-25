@@ -26,14 +26,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Helloooo from Job2 .....
-
-  FinalJob: 
-   if: ${{ always() && (needs.Explore-GitHub-Actions.outputs.NAME || needs.Job2.outputs.NAME) }}
-   needs: [Explore-GitHub-Actions,Job2]
-   runs-on: ubuntu-latest   
-   steps:
-     - env:
-          JOB1: ${{needs.Explore-GitHub-Actions.outputs.NAME}}
-          JOB2: ${{needs.Job2.outputs.NAME}}
-     - name: Print Data
-       run: echo "Helloooo from Job2 ($JOB1) ($JOB2)....."
